@@ -9,21 +9,65 @@
 /* Begin PBXBuildFile section */
 		25067F6A2892A87C00D060EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25067F692892A87C00D060EA /* AppDelegate.swift */; };
 		25067F6C2892A87C00D060EA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25067F6B2892A87C00D060EA /* SceneDelegate.swift */; };
-		25067F6E2892A87C00D060EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25067F6D2892A87C00D060EA /* ViewController.swift */; };
-		25067F712892A87C00D060EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25067F6F2892A87C00D060EA /* Main.storyboard */; };
+		25067F6E2892A87C00D060EA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25067F6D2892A87C00D060EA /* HomeViewController.swift */; };
 		25067F732892A87F00D060EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25067F722892A87F00D060EA /* Assets.xcassets */; };
 		25067F762892A87F00D060EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25067F742892A87F00D060EA /* LaunchScreen.storyboard */; };
+		25067F842892AABB00D060EA /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25067F832892AABB00D060EA /* TabBarViewController.swift */; };
+		25067F862892AB3E00D060EA /* CollectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25067F852892AB3E00D060EA /* CollectionsViewController.swift */; };
+		25067F882892AB4C00D060EA /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25067F872892AB4C00D060EA /* FriendsViewController.swift */; };
+		25067F8A2892AB5400D060EA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25067F892892AB5400D060EA /* ProfileViewController.swift */; };
+		25067F8F2892ABF400D060EA /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25067F8E2892ABF400D060EA /* AuthViewController.swift */; };
+		25067F912892AC0100D060EA /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25067F902892AC0100D060EA /* WelcomeViewController.swift */; };
+		25067F932892AC0C00D060EA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25067F922892AC0C00D060EA /* SettingsViewController.swift */; };
+		25067F952892AC3400D060EA /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25067F942892AC3400D060EA /* CollectionViewController.swift */; };
+		25067F982892AC6B00D060EA /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25067F972892AC6B00D060EA /* AuthManager.swift */; };
+		25067F9C2892AC9800D060EA /* SpotifyAPICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25067F9B2892AC9800D060EA /* SpotifyAPICaller.swift */; };
+		25067F9E2892ACB600D060EA /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25067F9D2892ACB600D060EA /* HapticsManager.swift */; };
+		25067FA02892ACDC00D060EA /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25067F9F2892ACDC00D060EA /* Collection.swift */; };
+		25067FA22892ACF000D060EA /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25067FA12892ACF000D060EA /* Post.swift */; };
+		25067FA42892ACFF00D060EA /* SpotifyUserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25067FA32892ACFF00D060EA /* SpotifyUserProfile.swift */; };
+		25BA771C28A98B980093B427 /* NewReleasesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BA771B28A98B980093B427 /* NewReleasesResponse.swift */; };
+		25BA771E28A98F230093B427 /* ImageFromAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BA771D28A98F230093B427 /* ImageFromAPI.swift */; };
+		25BA772028A994290093B427 /* FeaturedPlaylistsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BA771F28A994290093B427 /* FeaturedPlaylistsResponse.swift */; };
+		25E605C72892B81200BFDC97 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E605C62892B81200BFDC97 /* Extensions.swift */; };
+		25E605C92892C57E00BFDC97 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E605C82892C57E00BFDC97 /* AuthResponse.swift */; };
+		25F85D1428A8BDCA00A3E560 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 25F85D1328A8BDCA00A3E560 /* GoogleService-Info.plist */; };
+		25F85D1628A8C0C700A3E560 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F85D1528A8C0C700A3E560 /* PostViewController.swift */; };
+		7C2DB31DA6BE5698B54DEE3D /* Pods_Collective.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C950A0675377E2ED739A45B5 /* Pods_Collective.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		25067F662892A87C00D060EA /* Collective.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Collective.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25067F692892A87C00D060EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25067F6B2892A87C00D060EA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		25067F6D2892A87C00D060EA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		25067F702892A87C00D060EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		25067F6D2892A87C00D060EA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		25067F722892A87F00D060EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		25067F752892A87F00D060EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		25067F772892A87F00D060EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		25067F832892AABB00D060EA /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		25067F852892AB3E00D060EA /* CollectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsViewController.swift; sourceTree = "<group>"; };
+		25067F872892AB4C00D060EA /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
+		25067F892892AB5400D060EA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		25067F8E2892ABF400D060EA /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		25067F902892AC0100D060EA /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		25067F922892AC0C00D060EA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		25067F942892AC3400D060EA /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		25067F972892AC6B00D060EA /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		25067F9B2892AC9800D060EA /* SpotifyAPICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAPICaller.swift; sourceTree = "<group>"; };
+		25067F9D2892ACB600D060EA /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
+		25067F9F2892ACDC00D060EA /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
+		25067FA12892ACF000D060EA /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		25067FA32892ACFF00D060EA /* SpotifyUserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyUserProfile.swift; sourceTree = "<group>"; };
+		25BA771B28A98B980093B427 /* NewReleasesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReleasesResponse.swift; sourceTree = "<group>"; };
+		25BA771D28A98F230093B427 /* ImageFromAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFromAPI.swift; sourceTree = "<group>"; };
+		25BA771F28A994290093B427 /* FeaturedPlaylistsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedPlaylistsResponse.swift; sourceTree = "<group>"; };
+		25E605C62892B81200BFDC97 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		25E605C82892C57E00BFDC97 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
+		25F85D1328A8BDCA00A3E560 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		25F85D1528A8C0C700A3E560 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		9DDE1CF4AD4E6C524D612BE1 /* Pods-Collective.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Collective.release.xcconfig"; path = "Target Support Files/Pods-Collective/Pods-Collective.release.xcconfig"; sourceTree = "<group>"; };
+		C950A0675377E2ED739A45B5 /* Pods_Collective.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Collective.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA3776997865AEABD5C55D38 /* Pods-Collective.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Collective.debug.xcconfig"; path = "Target Support Files/Pods-Collective/Pods-Collective.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C2DB31DA6BE5698B54DEE3D /* Pods_Collective.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +87,8 @@
 			children = (
 				25067F682892A87C00D060EA /* Collective */,
 				25067F672892A87C00D060EA /* Products */,
+				447A8647D56F50233FF22606 /* Pods */,
+				9D1852D21E5EB59833DDEB5A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +103,116 @@
 		25067F682892A87C00D060EA /* Collective */ = {
 			isa = PBXGroup;
 			children = (
-				25067F692892A87C00D060EA /* AppDelegate.swift */,
-				25067F6B2892A87C00D060EA /* SceneDelegate.swift */,
-				25067F6D2892A87C00D060EA /* ViewController.swift */,
-				25067F6F2892A87C00D060EA /* Main.storyboard */,
-				25067F722892A87F00D060EA /* Assets.xcassets */,
-				25067F742892A87F00D060EA /* LaunchScreen.storyboard */,
+				25067F822892A8E700D060EA /* Controllers */,
+				25067F812892A8D000D060EA /* Resources */,
+				25067F802892A8C200D060EA /* Managers */,
+				25067F7F2892A8B800D060EA /* ViewModels */,
+				25067F7E2892A8A600D060EA /* Models */,
+				25067F7D2892A8A000D060EA /* Views */,
 				25067F772892A87F00D060EA /* Info.plist */,
+				25F85D1328A8BDCA00A3E560 /* GoogleService-Info.plist */,
 			);
 			path = Collective;
+			sourceTree = "<group>";
+		};
+		25067F7D2892A8A000D060EA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				25067F742892A87F00D060EA /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		25067F7E2892A8A600D060EA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				25067F9F2892ACDC00D060EA /* Collection.swift */,
+				25067FA12892ACF000D060EA /* Post.swift */,
+				25067FA32892ACFF00D060EA /* SpotifyUserProfile.swift */,
+				25E605C82892C57E00BFDC97 /* AuthResponse.swift */,
+				25BA771B28A98B980093B427 /* NewReleasesResponse.swift */,
+				25BA771D28A98F230093B427 /* ImageFromAPI.swift */,
+				25BA771F28A994290093B427 /* FeaturedPlaylistsResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		25067F7F2892A8B800D060EA /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		25067F802892A8C200D060EA /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				25067F972892AC6B00D060EA /* AuthManager.swift */,
+				25067F9B2892AC9800D060EA /* SpotifyAPICaller.swift */,
+				25067F9D2892ACB600D060EA /* HapticsManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		25067F812892A8D000D060EA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				25067F722892A87F00D060EA /* Assets.xcassets */,
+				25067F692892A87C00D060EA /* AppDelegate.swift */,
+				25067F6B2892A87C00D060EA /* SceneDelegate.swift */,
+				25E605C62892B81200BFDC97 /* Extensions.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		25067F822892A8E700D060EA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				25067F8D2892ABB100D060EA /* Core */,
+				25067F962892AC3D00D060EA /* Accessory */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		25067F8D2892ABB100D060EA /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				25067F6D2892A87C00D060EA /* HomeViewController.swift */,
+				25067F832892AABB00D060EA /* TabBarViewController.swift */,
+				25067F852892AB3E00D060EA /* CollectionsViewController.swift */,
+				25067F872892AB4C00D060EA /* FriendsViewController.swift */,
+				25067F892892AB5400D060EA /* ProfileViewController.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		25067F962892AC3D00D060EA /* Accessory */ = {
+			isa = PBXGroup;
+			children = (
+				25067F8E2892ABF400D060EA /* AuthViewController.swift */,
+				25067F902892AC0100D060EA /* WelcomeViewController.swift */,
+				25067F922892AC0C00D060EA /* SettingsViewController.swift */,
+				25067F942892AC3400D060EA /* CollectionViewController.swift */,
+				25F85D1528A8C0C700A3E560 /* PostViewController.swift */,
+			);
+			path = Accessory;
+			sourceTree = "<group>";
+		};
+		447A8647D56F50233FF22606 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EA3776997865AEABD5C55D38 /* Pods-Collective.debug.xcconfig */,
+				9DDE1CF4AD4E6C524D612BE1 /* Pods-Collective.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9D1852D21E5EB59833DDEB5A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C950A0675377E2ED739A45B5 /* Pods_Collective.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +222,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 25067F7A2892A87F00D060EA /* Build configuration list for PBXNativeTarget "Collective" */;
 			buildPhases = (
+				5D3F1D9D27988EEE1CF6E3AC /* [CP] Check Pods Manifest.lock */,
 				25067F622892A87C00D060EA /* Sources */,
 				25067F632892A87C00D060EA /* Frameworks */,
 				25067F642892A87C00D060EA /* Resources */,
+				6C8C4114B94E2207A8A29B2D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -127,34 +277,88 @@
 			files = (
 				25067F762892A87F00D060EA /* LaunchScreen.storyboard in Resources */,
 				25067F732892A87F00D060EA /* Assets.xcassets in Resources */,
-				25067F712892A87C00D060EA /* Main.storyboard in Resources */,
+				25F85D1428A8BDCA00A3E560 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5D3F1D9D27988EEE1CF6E3AC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Collective-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6C8C4114B94E2207A8A29B2D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Collective/Pods-Collective-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Collective/Pods-Collective-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Collective/Pods-Collective-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		25067F622892A87C00D060EA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25067F6E2892A87C00D060EA /* ViewController.swift in Sources */,
+				25BA771E28A98F230093B427 /* ImageFromAPI.swift in Sources */,
+				25BA771C28A98B980093B427 /* NewReleasesResponse.swift in Sources */,
+				25067F912892AC0100D060EA /* WelcomeViewController.swift in Sources */,
+				25E605C72892B81200BFDC97 /* Extensions.swift in Sources */,
+				25067F982892AC6B00D060EA /* AuthManager.swift in Sources */,
+				25067F9E2892ACB600D060EA /* HapticsManager.swift in Sources */,
+				25F85D1628A8C0C700A3E560 /* PostViewController.swift in Sources */,
+				25067F842892AABB00D060EA /* TabBarViewController.swift in Sources */,
+				25067F6E2892A87C00D060EA /* HomeViewController.swift in Sources */,
+				25067F932892AC0C00D060EA /* SettingsViewController.swift in Sources */,
+				25067FA02892ACDC00D060EA /* Collection.swift in Sources */,
+				25067F862892AB3E00D060EA /* CollectionsViewController.swift in Sources */,
 				25067F6A2892A87C00D060EA /* AppDelegate.swift in Sources */,
+				25E605C92892C57E00BFDC97 /* AuthResponse.swift in Sources */,
+				25067F8F2892ABF400D060EA /* AuthViewController.swift in Sources */,
+				25067F8A2892AB5400D060EA /* ProfileViewController.swift in Sources */,
+				25067FA22892ACF000D060EA /* Post.swift in Sources */,
+				25067F882892AB4C00D060EA /* FriendsViewController.swift in Sources */,
 				25067F6C2892A87C00D060EA /* SceneDelegate.swift in Sources */,
+				25BA772028A994290093B427 /* FeaturedPlaylistsResponse.swift in Sources */,
+				25067F952892AC3400D060EA /* CollectionViewController.swift in Sources */,
+				25067F9C2892AC9800D060EA /* SpotifyAPICaller.swift in Sources */,
+				25067FA42892ACFF00D060EA /* SpotifyUserProfile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		25067F6F2892A87C00D060EA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				25067F702892A87C00D060EA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		25067F742892A87F00D060EA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -282,6 +486,7 @@
 		};
 		25067F7B2892A87F00D060EA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA3776997865AEABD5C55D38 /* Pods-Collective.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -292,7 +497,6 @@
 				INFOPLIST_FILE = Collective/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -310,6 +514,7 @@
 		};
 		25067F7C2892A87F00D060EA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9DDE1CF4AD4E6C524D612BE1 /* Pods-Collective.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -320,7 +525,6 @@
 				INFOPLIST_FILE = Collective/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
