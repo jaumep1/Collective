@@ -39,16 +39,6 @@ class TabBarViewController: UITabBarController {
     private func sendUserToPostView(user: SpotifyUserProfile, userExists: Bool) {
         let vc = PostViewController()
         vc.user = user
-        vc.isFirstPost = userExists
-        /*
-         
-         Notes:
-         VC takes orders from here first then post vc class --> setup everything there?
-         
-         watch spotify guy to see how he sets up page --> table with cells?
-         
-         
-         */
         vc.navigationItem.largeTitleDisplayMode = .always
         vc.completionHandler = { [weak self] success in
             DispatchQueue.main.async {
@@ -57,7 +47,7 @@ class TabBarViewController: UITabBarController {
         }
         let nav = UINavigationController(rootViewController: vc)
         nav.navigationItem.largeTitleDisplayMode = .always
-        nav.navigationController?.modalPresentationStyle = .fullScreen
+        nav.modalPresentationStyle = .fullScreen
         self.navigationController?.present(nav, animated: true)
 
     }

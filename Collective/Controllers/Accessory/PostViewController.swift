@@ -11,7 +11,6 @@ class PostViewController: UIViewController {
 
     public var completionHandler: ((Bool) -> Void)?
     public var user: SpotifyUserProfile? = nil
-    public var isFirstPost: Bool = false
     
     let searchController: UISearchController = {
         let results = UIViewController()
@@ -33,7 +32,6 @@ class PostViewController: UIViewController {
         navigationItem.largeTitleDisplayMode = .always
         view.backgroundColor = .systemBackground
         navigationItem.searchController = searchController
-//        DispatchQueue.main.async { self.completionHandler?(true)    }
 
 
         
