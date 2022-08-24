@@ -74,6 +74,12 @@ class PostViewController: UIViewController, UISearchResultsUpdating, UISearchBar
             return
         }
         
+        resultsController.completionHandler = { [weak self] success in
+            DispatchQueue.main.async {
+                self?.dismiss(animated: true)
+            }
+        }
+        
         SpotifyAPICaller.shared.searchTracks(query: query) { result in
             DispatchQueue.main.async {
                 switch result {

@@ -19,6 +19,8 @@ class AudioTrackCollectionViewCell: UICollectionViewCell {
         imageView.layer.cornerRadius = 50
         imageView.layer.masksToBounds = true
         imageView.backgroundColor = .systemPink
+        imageView.layer.borderColor = UIColor.systemBlue.cgColor
+        imageView.layer.borderWidth = 0
         return imageView
     }()
     
@@ -78,6 +80,14 @@ class AudioTrackCollectionViewCell: UICollectionViewCell {
         }
         imageView.sd_setImage(with: model.artworkURL, completed: nil)
         
+    }
+    
+    func enableBorder() {
+        imageView.layer.borderWidth = 5
+    }
+    
+    func disableBorder() {
+        imageView.layer.borderWidth = 0
     }
     
 }

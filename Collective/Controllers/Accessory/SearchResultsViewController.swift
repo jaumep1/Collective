@@ -10,6 +10,19 @@ import UIKit
 class SearchResultsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     private var results: [AudioTrack] = []
+    private var selectedCell: IndexPath = IndexPath()
+    
+    public var completionHandler: ((Bool) -> Void)?
+    
+    private let postButton:UIButton = {
+        let button = UIButton()
+        button.setTitle("Post", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .black
+        button.isHidden = true;
+        button.layer.cornerRadius = 20
+        return button
+    }()
     
     private let collectionView: UICollectionView = {
         let collectionView = UICollectionView(
@@ -38,8 +51,12 @@ class SearchResultsViewController: UIViewController, UICollectionViewDelegate, U
         super.viewDidLoad()
         view.backgroundColor = .clear
         view.addSubview(collectionView)
+        view.addSubview(postButton)
         collectionView.delegate = self
         collectionView.dataSource = self
+        postButton
+            .addTarget(self, action: #selector(didTapPost), for: .touchUpInside)
+
         
 
         // Do any additional setup after loading the view.
@@ -48,6 +65,10 @@ class SearchResultsViewController: UIViewController, UICollectionViewDelegate, U
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         collectionView.frame = view.bounds
+        postButton.frame = CGRect(x: 20,
+                                    y: view.height-50-view.safeAreaInsets.bottom,
+                                    width: view.width-40,
+                                    height: 50)
     }
     
     func update(with results: [AudioTrack]) {
@@ -94,4 +115,35 @@ class SearchResultsViewController: UIViewController, UICollectionViewDelegate, U
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return results.count
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: selectedCell, animated: false)
+        (collectionView.cellForItem(at: selectedCell) as? AudioTrackCollectionViewCell)?.disableBorder()
+        if (selectedCell != indexPath) {
+            selectedCell = indexPath
+            collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredVertically)
+            let cell = collectionView.cellForItem(at: indexPath) as? AudioTrackCollectionViewCell
+            cell?.enableBorder()
+            showPostButton()
+        } else {
+            selectedCell = IndexPath()
+            dismissPostButton()
+        }
+    }
+    
+    func showPostButton() {
+        postButton.isHidden = false
+    }
+    
+    func dismissPostButton() {
+        postButton.isHidden = true
+    }
+    
+    @objc func didTapPost() {
+        DispatchQueue.main.async {
+            self.dismiss(animated: true)
+            self.completionHandler?(true)
+        }
+    }
+    
 }

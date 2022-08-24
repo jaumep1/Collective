@@ -119,7 +119,7 @@ final class SpotifyAPICaller {
     
     //MARK: - SEARCH
     public func searchTracks(query: String, completion: @escaping (Result<[AudioTrack], Error>) -> Void) {
-        createRequest(with: URL(string: Constants.baseAPIURL + "/search?limit=10&type=track&q=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"),
+        createRequest(with: URL(string: Constants.baseAPIURL + "/search?limit=20&type=track&q=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"),
                       type: .GET
         ) { request in
             let task = URLSession.shared.dataTask(with: request) { data, _, error in
