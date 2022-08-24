@@ -11,6 +11,8 @@ class SearchResultsViewController: UIViewController, UICollectionViewDelegate, U
 
     private var results: [AudioTrack] = []
     private var selectedCell: IndexPath = IndexPath()
+    public var user: SpotifyUserProfile? = nil
+
     
     public var completionHandler: ((Bool) -> Void)?
     
@@ -141,6 +143,7 @@ class SearchResultsViewController: UIViewController, UICollectionViewDelegate, U
     
     @objc func didTapPost() {
         DispatchQueue.main.async {
+            FirestoreManager.shared.postNewPost(with: self.user!, data: self.results[self.selectedCell.row])
             self.dismiss(animated: true)
             self.completionHandler?(true)
         }

@@ -5,13 +5,10 @@
 //  Created by Jaume Pujadas on 7/28/22.
 //
 
-import FirebaseFirestore
 import UIKit
 
 class TabBarViewController: UITabBarController {
-    
-    let database = Firestore.firestore()
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,11 +18,10 @@ class TabBarViewController: UITabBarController {
             case .success(let model):
                 DispatchQueue.main.async {
                     self.launchTabsWithUserData(user: model)
-                    self.database.document("users/" + model.id).getDocument() { snapshot, error in
-                        guard snapshot?.data() != nil, error == nil else {
-                            self.sendUserToPostView(user: model, userExists: true)
-                            return
-                        }
+                    FirestoreManager.shared.hasUserPosted(with: model) {[weak self] success in
+//                        if (!success) {
+                            self?.sendUserToPostView(user: model, userExists: true)
+//                        }
                     }
                 }
                 break

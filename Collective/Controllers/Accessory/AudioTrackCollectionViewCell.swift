@@ -11,6 +11,8 @@ import SDWebImage
 class AudioTrackCollectionViewCell: UICollectionViewCell {
     static let identifier = "TrackCollectionViewCell"
     
+    
+    
     private let imageView: UIImageView = {
        let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
