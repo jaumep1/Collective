@@ -8,6 +8,8 @@ target 'Collective' do
   # Pods for Collective
 
 pod 'Firebase/Core'
-pod 'Firebase/Firestore' 
+pod 'Firebase/Firestore'
+pod 'SDWebImage'
+pod 'Appirater'
 
 end

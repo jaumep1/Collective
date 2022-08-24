@@ -5,13 +5,10 @@
 //  Created by Jaume Pujadas on 7/28/22.
 //
 
-import FirebaseFirestore
 import UIKit
 
 class TabBarViewController: UITabBarController {
-    
-    let database = Firestore.firestore()
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,10 +18,9 @@ class TabBarViewController: UITabBarController {
             case .success(let model):
                 DispatchQueue.main.async {
                     self.launchTabsWithUserData(user: model)
-                    self.database.document("users/" + model.id).getDocument() { snapshot, error in
-                        guard snapshot?.data() != nil, error == nil else {
-                            self.sendUserToPostView(user: model, userExists: true)
-                            return
+                    FirestoreManager.shared.hasUserPosted(with: model) {[weak self] success in
+                        if (!success) {
+                            self?.sendUserToPostView(user: model, userExists: true)
                         }
                     }
                 }
@@ -39,16 +35,6 @@ class TabBarViewController: UITabBarController {
     private func sendUserToPostView(user: SpotifyUserProfile, userExists: Bool) {
         let vc = PostViewController()
         vc.user = user
-        vc.isFirstPost = userExists
-        /*
-         
-         Notes:
-         VC takes orders from here first then post vc class --> setup everything there?
-         
-         watch spotify guy to see how he sets up page --> table with cells?
-         
-         
-         */
         vc.navigationItem.largeTitleDisplayMode = .always
         vc.completionHandler = { [weak self] success in
             DispatchQueue.main.async {
@@ -57,7 +43,7 @@ class TabBarViewController: UITabBarController {
         }
         let nav = UINavigationController(rootViewController: vc)
         nav.navigationItem.largeTitleDisplayMode = .always
-        nav.navigationController?.modalPresentationStyle = .fullScreen
+        nav.modalPresentationStyle = .fullScreen
         self.navigationController?.present(nav, animated: true)
 
     }
