@@ -19,9 +19,9 @@ class TabBarViewController: UITabBarController {
                 DispatchQueue.main.async {
                     self.launchTabsWithUserData(user: model)
                     FirestoreManager.shared.hasUserPosted(with: model) {[weak self] success in
-//                        if (!success) {
+                        if (!success) {
                             self?.sendUserToPostView(user: model, userExists: true)
-//                        }
+                        }
                     }
                 }
                 break
