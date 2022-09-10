@@ -20,20 +20,29 @@ class PostViewController: UIViewController, UISearchResultsUpdating, UISearchBar
         return vc
     }()
     
+    
+    
     private let collectionView: UICollectionView = UICollectionView(
         frame: .zero,
-        collectionViewLayout: UICollectionViewCompositionalLayout(sectionProvider: { _,_ -> NSCollectionLayoutSection? in
-            let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
-            
-            item.contentInsets = NSDirectionalEdgeInsets(top: 2,
-                                                         leading: 2,
-                                                         bottom: 2,
-                                                         trailing: 2)
-            
-            let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(180)), subitem: item, count: 2)
-            
-            return NSCollectionLayoutSection(group: group)
-        }))
+        collectionViewLayout: UICollectionViewCompositionalLayout(
+            sectionProvider: { _,_ -> NSCollectionLayoutSection? in
+                let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
+                
+                item.contentInsets = NSDirectionalEdgeInsets(top: 5,
+                                                             leading: 20,
+                                                             bottom: 5,
+                                                             trailing: 20)
+                
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.75), heightDimension: .fractionalHeight(0.3)), subitem: item, count: 2)
+                
+                return NSCollectionLayoutSection(group: group)
+        },
+            configuration: {
+                let config = UICollectionViewCompositionalLayoutConfiguration()
+                config.scrollDirection = .horizontal
+                return config
+            }()
+            ))
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +60,7 @@ class PostViewController: UIViewController, UISearchResultsUpdating, UISearchBar
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = .systemBackground
+
         
         
 //        DispatchQueue.main.async { self.completionHandler?(true)    }

@@ -52,13 +52,24 @@ class WelcomeViewController: UIViewController {
             return
         }
          
-        let vc = TabBarViewController()
-        vc.modalPresentationStyle = .fullScreen
-        let mainNav = UINavigationController(rootViewController: vc)
-        mainNav.navigationBar.prefersLargeTitles = true
-        mainNav.viewControllers.first?.navigationItem.largeTitleDisplayMode = .always
-        mainNav.modalPresentationStyle = .fullScreen
-        present(mainNav, animated: true)
+        SpotifyAPICaller.shared.getCurrentUserProfile { result in
+            switch result {
+            case .success(let model):
+                DispatchQueue.main.async {
+                    FirestoreManager.shared.createUser(with: model)
+                    let vc = TabBarViewController()
+                    vc.modalPresentationStyle = .fullScreen
+                    let mainNav = UINavigationController(rootViewController: vc)
+                    mainNav.navigationBar.prefersLargeTitles = true
+                    mainNav.viewControllers.first?.navigationItem.largeTitleDisplayMode = .always
+                    mainNav.modalPresentationStyle = .fullScreen
+                    self.present(mainNav, animated: true)
+                }
+                break
+            case .failure(let error):
+                print (error.localizedDescription)
+            }
+        }
     }
 
 }

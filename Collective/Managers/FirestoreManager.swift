@@ -25,6 +25,22 @@ final class FirestoreManager {
             completion(true)
         }
     }
+    
+    public func createUser(with model: SpotifyUserProfile) {
+        self.database
+            .collection("users")
+            .document(model.id)
+            .setData(
+            [
+                "country": model.country,
+                "display_name": model.display_name,
+                "email": model.email,
+                "id": model.id,
+                "product": model.product,
+                "image": model.images.first?.url,
+                "num_posts": 0
+            ])
+    }
         
     public func postNewPost(with model: SpotifyUserProfile, data: AudioTrack) {
         var numPosts = 0
@@ -43,14 +59,14 @@ final class FirestoreManager {
         self.database
             .collection("users")
             .document(model.id)
-            .setData(["num_posts": numPosts+1])
+            .updateData(["num_posts": numPosts+1])
         
         self.database
             .collection("users")
             .document(model.id)
             .collection("posts")
             .document(String(numPosts))
-            .setData(
+            .updateData(
         [
             "track_name": data.name,
             "track_id": data.id,
