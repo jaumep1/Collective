@@ -117,6 +117,52 @@ final class SpotifyAPICaller {
         }
     }
     
+    //MARK: - SEARCH
+    public func searchTracks(query: String, completion: @escaping (Result<[AudioTrack], Error>) -> Void) {
+        createRequest(with: URL(string: Constants.baseAPIURL + "/search?limit=20&type=track&q=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"),
+                      type: .GET
+        ) { request in
+            let task = URLSession.shared.dataTask(with: request) { data, _, error in
+                guard let data = data, error == nil else {
+                    completion(.failure(APIError.failedToGetData))
+                    return
+                }
+                
+                do {
+                    let result = try JSONDecoder().decode(SearchTracksResponse.self, from: data)
+                    completion(.success(result.tracks.items))
+                } catch {
+                    completion(.failure(error))
+                }
+            }
+            task.resume()
+        }
+    }
+    
+    public func getUserRecentTracks(completion: @escaping (Result<[AudioTrack], Error>) -> Void) {
+        createRequest(with: URL(string: Constants.baseAPIURL + "/me/top/tracks?limit=20"),
+                      type: .GET
+        ) { request in
+            let task = URLSession.shared.dataTask(with: request) { data, _, error in
+                guard let data = data, error == nil else {
+                    completion(.failure(APIError.failedToGetData))
+                    return
+                }
+                
+                do {
+                    let result = try JSONDecoder().decode(TopTracksResponse.self, from: data)
+//                    let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+//                    print(json)
+                    completion(.success(result.items))
+                } catch {
+                    print("DING DONG SAD BUT LESS SAD")
+                    completion(.failure(error))
+                }
+            }
+            task.resume()
+        }
+    }
+    
     // MARK: - Private
     
     enum HTTPMethod: String {

@@ -16,13 +16,13 @@ struct AlbumsResponse: Codable {
 }
 
 struct Album: Codable {
-    let albumType: String
-    let availableMarkets: [String]
+    let album_type: String
+    let available_markets: [String]
     let id: String
     let images: [ImageFromAPI]
     let name: String
-    let releaseDate: String
-    let totalTracks: Int
+    let release_date: String
+    let total_tracks: Int
     let artists: [Artist]
 }
 

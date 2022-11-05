@@ -5,13 +5,11 @@
 //  Created by Jaume Pujadas on 7/28/22.
 //
 
-import FirebaseFirestore
 import Foundation
 
 final class AuthManager {
     static let shared = AuthManager()
     
-    private var database = Firestore.firestore()
     private var onRefreshBlocks = [((String) -> Void)]()
     private var refreshingToken = false
     
