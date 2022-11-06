@@ -9,6 +9,7 @@ target 'Collective' do
 
 pod 'Firebase/Core'
 pod 'Firebase/Firestore'
+pod 'FirebaseFirestoreSwift'
 pod 'SDWebImage'
 pod 'Appirater'
 

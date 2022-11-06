@@ -8,7 +8,7 @@
 import UIKit
 
 class TabBarViewController: UITabBarController {
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,9 +36,9 @@ class TabBarViewController: UITabBarController {
         let vc = PostViewController()
         vc.user = user
         vc.navigationItem.largeTitleDisplayMode = .always
-        vc.completionHandler = { [weak self] success in
+        vc.completionHandler = { success in
             DispatchQueue.main.async {
-                self?.dismiss(animated: true)
+                vc.dismiss(animated: true)
             }
         }
         let nav = UINavigationController(rootViewController: vc)
@@ -77,6 +77,7 @@ class TabBarViewController: UITabBarController {
         nav4.navigationBar.prefersLargeTitles = true
         
         setViewControllers([nav1, nav2, nav3, nav4], animated: false)
+        self.selectedViewController = nav3
     }
     
 }

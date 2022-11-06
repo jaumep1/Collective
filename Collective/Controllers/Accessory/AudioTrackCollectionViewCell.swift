@@ -28,7 +28,6 @@ class AudioTrackCollectionViewCell: UICollectionViewCell {
     
     private let label: UILabel = {
        let label = UILabel()
-        label.textColor = .black
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 20, weight: .light)
         return label
