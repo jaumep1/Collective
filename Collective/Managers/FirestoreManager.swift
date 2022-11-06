@@ -18,8 +18,19 @@ final class FirestoreManager {
     private init() {}
     
     public func hasUserPosted(with model: SpotifyUserProfile, completion: @escaping (Bool) -> Void) {
-        self.database.document("users/" + model.id).getDocument { snapshot, error in
+        self.database.document("feed/" + model.id).getDocument { snapshot, error in
             guard snapshot?.data() != nil, error == nil else {
+                completion(false)
+                return
+            }
+            do {
+                let result = try snapshot?.data(as: FeedCellData.self)
+                if (NSDate().timeIntervalSince1970 - result!.timestamp > 7200) {
+                    completion(false)
+                    return
+                }
+            } catch {
+                print(error)
                 completion(false)
                 return
             }
@@ -66,6 +77,7 @@ final class FirestoreManager {
             "popularity_score": data.popularity,
             "external_urls": data.external_urls,
             "image": data.album.images.first?.url,
+            "timestamp": NSDate().timeIntervalSince1970
         ])
         postToFeed(with: model, data: data)
     }
@@ -90,6 +102,7 @@ final class FirestoreManager {
                 "popularity_score": data.popularity,
                 "external_urls": data.external_urls,
                 "image": data.album.images.first?.url,
+                "timestamp": NSDate().timeIntervalSince1970
             ])
     }
 
@@ -107,11 +120,8 @@ final class FirestoreManager {
 //                print("\(document.documentID) => \(document.data())")
                 do {
                     let result = try document.data(as: FeedCellData.self)
-                    print("REACHING")
-                    print(result)
                     results.append(result)
                 } catch {
-                    print("CAUGHT")
                     print(error)
                 }
                 

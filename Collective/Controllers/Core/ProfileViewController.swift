@@ -9,11 +9,20 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+    private let headline: UILabel = {
+        let label = UILabel()
+        label.text = "All about you -- stay tuned for updates!"
+        label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 2
+        return label
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        view.backgroundColor = .systemBackground
+        headline.frame = CGRect(x: 50 , y: (view.frame.size.height/2)-50, width: (view.frame.size.width) - 100, height: 50)
+        view.addSubview(headline)
+        
         // Do any additional setup after loading the view.
         view.backgroundColor = .systemBackground
     }

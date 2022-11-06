@@ -53,10 +53,10 @@ class FeedCollectionViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        title.frame = CGRect(x: 5, y: contentView.frame.size.height-50, width: 2*contentView.frame.size.width/5, height: 50)
-        author.frame = CGRect(x: 5, y: 5, width: contentView.frame.size.width, height: 50)
+        title.frame = CGRect(x: 10, y: contentView.frame.size.height-50, width: 2*contentView.frame.size.width/5, height: 50)
+        author.frame = CGRect(x: 10, y: 5, width: contentView.frame.size.width, height: 50)
 
-        artist.frame = CGRect(x: 3*contentView.frame.size.width/5 , y: contentView.frame.size.height-50, width: 2*(contentView.frame.size.width/5) - 5, height: 50)
+        artist.frame = CGRect(x: 3*contentView.frame.size.width/5 , y: contentView.frame.size.height-50, width: 2*(contentView.frame.size.width/5) - 10, height: 50)
         
         coverImage.frame = CGRect(x: 5, y: 55, width: contentView.frame.size.width-10, height: contentView.frame.size.height-105)
      }

@@ -13,4 +13,5 @@ struct FeedCellData: Codable {
     let track_name: String
     let artist: String
     let image: URL
+    let timestamp: Double
 }
