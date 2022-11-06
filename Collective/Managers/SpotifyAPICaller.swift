@@ -151,11 +151,8 @@ final class SpotifyAPICaller {
                 
                 do {
                     let result = try JSONDecoder().decode(TopTracksResponse.self, from: data)
-//                    let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-//                    print(json)
                     completion(.success(result.items))
                 } catch {
-                    print("DING DONG SAD BUT LESS SAD")
                     completion(.failure(error))
                 }
             }

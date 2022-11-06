@@ -6,6 +6,7 @@
 //
 
 import FirebaseFirestore
+import FirebaseFirestoreSwift
 import Foundation
 
 final class FirestoreManager {
@@ -54,10 +55,10 @@ final class FirestoreManager {
         [
             "track_name": data.name,
             "track_id": data.id,
-            "album": [
-                "album_name": data.album.name,
-                "album_id": data.album.id,
-            ],
+            "album_name":  data.album.name,
+            "album_id":  data.album.id,
+            "artist": data.artists.first?.name,
+            "artist_id": data.artists.first?.id,
             "available_markets": data.available_markets,
             "disc_number": data.disc_number,
             "duration_ms": data.duration_ms,
@@ -66,5 +67,56 @@ final class FirestoreManager {
             "external_urls": data.external_urls,
             "image": data.album.images.first?.url,
         ])
+        postToFeed(with: model, data: data)
+    }
+    
+    private func postToFeed(with model: SpotifyUserProfile, data: AudioTrack) {
+        self.database
+            .collection("feed")
+            .document(model.id)
+            .setData(
+            [
+                "author": model.display_name,
+                "track_name": data.name,
+                "track_id": data.id,
+                "album_name":  data.album.name,
+                "album_id":  data.album.id,
+                "artist": data.artists.first?.name,
+                "artist_id": data.artists.first?.id,
+                "available_markets": data.available_markets,
+                "disc_number": data.disc_number,
+                "duration_ms": data.duration_ms,
+                "explicit": data.explicit,
+                "popularity_score": data.popularity,
+                "external_urls": data.external_urls,
+                "image": data.album.images.first?.url,
+            ])
+    }
+
+    
+    public func fetchFeed(completion: @escaping (Result<[FeedCellData], Error>) -> Void) {
+        self.database.collection("feed").getDocuments() { snapshot, error in
+            guard snapshot?.documents != nil, error == nil else {
+                completion(.failure("ERROR FETCHING FEED" as! Error))
+                return
+            }
+            
+            var results:[FeedCellData] = []
+            
+            for document in snapshot!.documents {
+//                print("\(document.documentID) => \(document.data())")
+                do {
+                    let result = try document.data(as: FeedCellData.self)
+                    print("REACHING")
+                    print(result)
+                    results.append(result)
+                } catch {
+                    print("CAUGHT")
+                    print(error)
+                }
+                
+            }
+            completion(.success(results))
+        }
     }
 }

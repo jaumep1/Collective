@@ -14,8 +14,10 @@ class CollectionsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         view.backgroundColor = .systemBackground
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         self.navigationController?.parent?.title = "Collections"
-
     }
     
 

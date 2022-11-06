@@ -11,8 +11,11 @@ class WelcomeViewController: UIViewController {
 
     private let signInButton:UIButton = {
         let button = UIButton()
+        button.backgroundColor = .systemGreen
+        button.layer.cornerRadius = 25
         button.setTitle("Sign In with Spotify", for: .normal)
         button.setTitleColor(.black, for: .normal)
+
         return button
     }()
     
@@ -51,6 +54,8 @@ class WelcomeViewController: UIViewController {
             present(alert, animated: true)
             return
         }
+        
+        print("WINNING")
          
         let vc = TabBarViewController()
         vc.modalPresentationStyle = .fullScreen
